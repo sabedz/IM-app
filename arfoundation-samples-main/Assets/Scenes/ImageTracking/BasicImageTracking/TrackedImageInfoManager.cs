@@ -11,6 +11,11 @@ namespace UnityEngine.XR.ARFoundation.Samples
     /// and overlays some information as well as the source Texture2D on top of the
     /// detected image.
     /// </summary>
+    /// 
+
+
+
+
     [RequireComponent(typeof(ARTrackedImageManager))]
     public class TrackedImageInfoManager : MonoBehaviour
     {
