@@ -215,7 +215,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         public void ScaleButtonPressed()
         {
-            LoadScene("Scale");
+            LoadScene("UXManagerScene");
         }
 
         public void ConfigChooserButtonPressed()
@@ -397,7 +397,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         public void CameraGrainButtonPressed()
         {
-            LoadScene("CameraGrain");
+            LoadScene("UXManagerScene");
         }
 
         public void ThermalStateButtonPressed()
