@@ -32,7 +32,7 @@ public class scale : MonoBehaviour
         scaleSlider.onValueChanged.AddListener(ScaleSliderUpdate);
 
 
-        rotateSlider = GameObject.Find("RotateSlider").GetComponent<Slider>();
+        rotateSlider = GameObject.Find("Rotation Slider").GetComponent<Slider>();
         rotateSlider.minValue = rotMinValue;
         rotateSlider.maxValue = rotMaxValue;
 
