@@ -10,15 +10,13 @@ public class VoiceManager : MonoBehaviour
 {
     const string LANG_CODE = "en-US";
     float period = 0.0f;
-    Animator m_Animator;
-
-    [SerializeField]
-    Text uiText;
+    Animator helpAnimator;
+    public GameObject btnHelp;
 
     void Start()
     {
         Setup(LANG_CODE);
-        m_Animator = gameObject.GetComponent<Animator>();
+        helpAnimator = btnHelp.GetComponent<Animator> ();
 
 #if UNITY_ANDROID
         SpeechToText.instance.onPartialResultsCallback = OnPartialSpeechResult;
@@ -36,7 +34,6 @@ public class VoiceManager : MonoBehaviour
         if (period > 0.1)
         {
             StartListening();
-            AnimText();
             period = 0;
         }
         period += UnityEngine.Time.deltaTime;
@@ -83,13 +80,12 @@ public class VoiceManager : MonoBehaviour
     }
     void OnFinalSpeechResult(string result)
     {
-        //uiText.text = result;
         if (result == "menu")
         {
             loadMenu();
         }
 
-        else if (result == "let's go")
+        else if (result == "let's go" || result == "go")
         {
             loadMain();
         }
@@ -100,14 +96,13 @@ public class VoiceManager : MonoBehaviour
         }
         else
         {
-            AnimText();
+            AnimHelp();
             StartListening();
         }
 
     }
     void OnPartialSpeechResult(string result)
     {
-        //uiText.text = result;
         if (result == "menu")
         {
             loadMenu();
@@ -117,14 +112,14 @@ public class VoiceManager : MonoBehaviour
             loadUX();
         }
 
-        else if (result == "let's go")
+        else if (result == "let's go" || result == "go")
         {
             loadMain();
         }
 
         else
         {
-            AnimText();
+            AnimHelp();
             StartListening();
         }
     }
@@ -152,8 +147,9 @@ public class VoiceManager : MonoBehaviour
         SceneManager.LoadScene("SimpleAR");
     }
 
-    void AnimText()
+    public void AnimHelp()
     {
-
+        helpAnimator.SetTrigger("help");
+        StartListening();
     }
 }

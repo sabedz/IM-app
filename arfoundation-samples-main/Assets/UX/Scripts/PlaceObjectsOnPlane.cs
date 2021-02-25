@@ -61,7 +61,12 @@ public class PlaceObjectsOnPlane : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                if (m_RaycastManager.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinPolygon))
+
+                var touchPosition = touch.position;
+
+                bool isOverUI = touchPosition.IsPointOverUIObject();
+
+                if (!isOverUI && m_RaycastManager.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinPolygon))
                 {
                     Pose hitPose = s_Hits[0].pose;
 
