@@ -13,6 +13,7 @@ public class VoiceManager : MonoBehaviour
     Animator helpAnimator;
     public GameObject btnHelp;
 
+
     void Start()
     {
         Setup(LANG_CODE);
@@ -90,10 +91,11 @@ public class VoiceManager : MonoBehaviour
             loadMain();
         }
 
-        else if (result == "reload")
+        else if (result == "reset")
         {
             loadUX();
         }
+
         else
         {
             AnimHelp();
@@ -107,7 +109,7 @@ public class VoiceManager : MonoBehaviour
         {
             loadMenu();
         }
-        else if (result == "reload")
+        else if (result == "reset")
         {
             loadUX();
         }

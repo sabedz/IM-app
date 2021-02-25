@@ -10,6 +10,7 @@ public class PlaceObjectsOnPlane : MonoBehaviour
     [SerializeField]
     [Tooltip("Instantiates this prefab on a plane at the touch location.")]
     GameObject m_PlacedPrefab;
+    public GameObject m_text;
 
     /// <summary>
     /// The prefab to instantiate on touch.
@@ -50,6 +51,7 @@ public class PlaceObjectsOnPlane : MonoBehaviour
 
     void Awake()
     {
+        m_text.SetActive(false);
         m_RaycastManager = GetComponent<ARRaycastManager>();
     }
 
@@ -88,8 +90,16 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                     {
                         onPlacedObject();
                     }
+
+                    showFinish();
+
                 }
             }
         }
+    }
+
+    public void showFinish()
+    {
+        m_text.SetActive(true);
     }
 }
