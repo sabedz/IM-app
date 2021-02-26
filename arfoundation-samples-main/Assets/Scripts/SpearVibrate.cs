@@ -11,12 +11,19 @@ public class SpearVibrate : MonoBehaviour
         
     }
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Target"))
         {
             Handheld.Vibrate();
         }
+
+        if (other.CompareTag("Colosseum"))
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 
     // Update is called once per frame

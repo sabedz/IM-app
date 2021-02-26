@@ -19,9 +19,9 @@ public class SpearInstructions : MonoBehaviour
 
     IEnumerator Instructions()
     {
-        yield return new WaitForSeconds(3);
         if (textElement.enabled==true)
         {
+            yield return new WaitForSeconds(3);
             textElement.enabled = false;
         }
     }
