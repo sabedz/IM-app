@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.Events;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -11,6 +12,36 @@ namespace UnityEngine.XR.ARFoundation.Samples
     [RequireComponent(typeof(Light))]
     public class BasicLightEstimation : MonoBehaviour
     {
+
+        [Range(0, 1)]
+        public float threshHold;
+
+        public UnityEvent OnLightOn;
+        public UnityEvent OnLightOff;
+
+        bool lightOn;
+        float lightValue;
+
+
+        void Update()
+        {
+            lightValue = brightness.Value;
+
+            if(lightValue >= threshHold && !lightOn)
+            {
+                OnLightOn.Invoke();
+                lightOn = true;
+            }
+            else if(lightValue < threshHold && lightOn)
+            {
+                OnLightOff.Invoke();
+                lightOn = false;
+            }
+
+
+        }
+
+
         [SerializeField]
         [Tooltip("The ARCameraManager which will produce frame events containing light estimation information.")]
         ARCameraManager m_CameraManager;
