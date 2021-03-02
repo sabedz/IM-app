@@ -6,6 +6,7 @@ using System.Collections;
 public class SpearVibrate : MonoBehaviour
 {
     AudioSource targetHit;
+    public ParticleSystem destroySpear;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class SpearVibrate : MonoBehaviour
 
         if (other.CompareTag("Colosseum"))
         {
+            Instantiate(destroySpear, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
