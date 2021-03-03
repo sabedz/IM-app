@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TextSpeech;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 
@@ -10,14 +11,20 @@ public class VoiceManager : MonoBehaviour
 {
     const string LANG_CODE = "en-US";
     float period = 0.0f;
+    Animator voiceAnimator;
     Animator helpAnimator;
-    public GameObject btnHelp;
+    public GameObject voiceConsole;
+    public GameObject helpAnim;
 
+   // VideoPlayer source;
+   // public GameObject ARSession;
 
     void Start()
     {
         Setup(LANG_CODE);
-        helpAnimator = btnHelp.GetComponent<Animator> ();
+        voiceAnimator = voiceConsole.GetComponent<Animator> ();
+        helpAnimator = helpAnim.GetComponent<Animator>();
+        //source = ARSession.GetComponent<VideoPlayer>();
 
 #if UNITY_ANDROID
         SpeechToText.instance.onPartialResultsCallback = OnPartialSpeechResult;
@@ -86,25 +93,40 @@ public class VoiceManager : MonoBehaviour
             loadMenu();
         }
 
-        else if (result == "let's go" || result == "go")
-        {
-            loadMain();
-        }
-
         else if (result == "reset")
         {
             loadUX();
         }
 
-        else
+        else if (result == "let's go" || result == "go")
         {
-            AnimHelp();
-            StartListening();
+            loadMain();
         }
 
+        else if (result == "help")
+        {
+            AnimHelpIn();
+        }
+
+        else if (result == "okay" || result == "okey")
+        {
+            AnimHelpOut();
+        }
+
+        /*else if (result == "stop" || result == "stop music")
+        {
+            pauseMusic();
+        }
+        else if (result == "play" || result == "play music")
+        {
+            playMusic();
+        }*/
     }
     void OnPartialSpeechResult(string result)
     {
+        AnimVoice();
+        StartListening();
+
         if (result == "menu")
         {
             loadMenu();
@@ -114,16 +136,28 @@ public class VoiceManager : MonoBehaviour
             loadUX();
         }
 
+        else if (result == "help")
+        {
+            AnimHelpIn();
+        }
+
+        else if (result == "okay" || result == "okey")
+        {
+            AnimHelpOut();
+        }
+
         else if (result == "let's go" || result == "go")
         {
             loadMain();
         }
-
-        else
+       /* else if (result == "stop" || result == "stop music")
         {
-            AnimHelp();
-            StartListening();
+            pauseMusic();
         }
+        else if (result == "play" || result == "play music")
+        {
+            playMusic();
+        }*/
     }
     #endregion
 
@@ -149,9 +183,30 @@ public class VoiceManager : MonoBehaviour
         SceneManager.LoadScene("SimpleAR");
     }
 
-    public void AnimHelp()
+    public void AnimVoice()
     {
-        helpAnimator.SetTrigger("help");
+        voiceAnimator.SetTrigger("help");
         StartListening();
     }
+
+    void AnimHelpIn()
+    {
+        helpAnimator.SetBool("consoleIn", true);
+        StartListening();
+    }
+    void AnimHelpOut()
+    {
+        helpAnimator.SetBool("consoleIn", false);
+        StartListening();
+    }
+
+    /*void playMusic()
+    {
+        source.Play();
+    }
+
+    void pauseMusic()
+    {
+        source.Pause();
+    }*/
 }

@@ -11,6 +11,10 @@ public class PlaceObjectsOnPlane : MonoBehaviour
     [Tooltip("Instantiates this prefab on a plane at the touch location.")]
     GameObject m_PlacedPrefab;
     public GameObject m_text;
+    AudioSource source;
+
+    public GameObject btnGo;
+    Animator goAnimator;
 
     /// <summary>
     /// The prefab to instantiate on touch.
@@ -53,6 +57,9 @@ public class PlaceObjectsOnPlane : MonoBehaviour
     {
         m_text.SetActive(false);
         m_RaycastManager = GetComponent<ARRaycastManager>();
+        source = GetComponent<AudioSource>();
+        goAnimator = btnGo.GetComponent<Animator>();
+        goAnimator.SetBool("go", false);
     }
 
     void Update()
@@ -77,6 +84,10 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                         spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
                         
                         m_NumberOfPlacedObjects++;
+                        Handheld.Vibrate();
+                        showFinish();
+                        source.Play(0);
+                        goAnimator.SetBool("go", true);
                     }
                     else
                     {
@@ -90,9 +101,6 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                     {
                         onPlacedObject();
                     }
-
-                    showFinish();
-
                 }
             }
         }
