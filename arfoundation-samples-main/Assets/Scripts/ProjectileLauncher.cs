@@ -8,6 +8,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
     [RequireComponent(typeof(Camera))]
     public class ProjectileLauncher : MonoBehaviour
     {
+
         [SerializeField]
         Rigidbody m_ProjectilePrefab;
 
@@ -32,7 +33,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 return;
 
             if (Input.touchCount == 0)
-                return;
+                return;  
 
             var touch = Input.touches[0];
             if (touch.phase == TouchPhase.Began)
@@ -42,6 +43,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 var rigidbody = projectile.GetComponent<Rigidbody>();
                 rigidbody.velocity = ray.direction * m_InitialSpeed;
             }
+
         }
     }
 }

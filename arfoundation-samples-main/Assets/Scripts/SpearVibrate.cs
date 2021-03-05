@@ -8,9 +8,27 @@ public class SpearVibrate : MonoBehaviour
     AudioSource targetHit;
     public ParticleSystem destroySpear;
 
+    private GameController gameController;
+
+    private int scoreValue;
+
     // Start is called before the first frame update
     void Start()
     {
+        scoreValue = 5;
+
+
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if(gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if(gameController == null)
+        {
+            Debug.Log("Cannot find Game Controller");
+        }
+
+
         targetHit = GetComponent<AudioSource>();
         
     }
@@ -21,6 +39,7 @@ public class SpearVibrate : MonoBehaviour
         {
             Handheld.Vibrate();
             targetHit.Play();
+            gameController.AddScore(scoreValue);
         }
 
         if (other.CompareTag("Colosseum"))
