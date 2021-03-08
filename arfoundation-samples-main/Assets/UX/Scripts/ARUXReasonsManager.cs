@@ -10,8 +10,10 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARUXReasonsManager : MonoBehaviour
 {
+
     [SerializeField]
     bool m_ShowNotTrackingReasons = true;
+    bool vib = true;
     
     public bool showNotTrackingReasons
     {
@@ -134,12 +136,14 @@ public class ARUXReasonsManager : MonoBehaviour
         if (!m_ShowNotTrackingReasons)
         {
             m_ReasonParent.SetActive(false);
+            //vib = true;
         }
     }
 
     void OnDisable()
     {
         ARSession.stateChanged -= ARSessionOnstateChanged;
+        //vib = true;
     }
 
     void Update()
@@ -164,6 +168,7 @@ public class ARUXReasonsManager : MonoBehaviour
     void ARSessionOnstateChanged(ARSessionStateChangedEventArgs obj)
     {
         m_SessionTracking = obj.state == ARSessionState.SessionTracking ? true : false;
+        vib = true;
     }
 
     void ShowReason()
@@ -189,6 +194,11 @@ public class ARUXReasonsManager : MonoBehaviour
                 m_ReasonIcon.sprite = m_InitRelocalSprite;
                 break;
             case NotTrackingReason.ExcessiveMotion:
+                if (vib && VibrationToggle.vibIsOn)
+                {
+                    Handheld.Vibrate();
+                    vib = false;
+                }
                 if (m_LocalizeText)
                 {
                     m_ReasonDisplayText.text = m_LocalizationManager.localizedMotion;
@@ -200,7 +210,12 @@ public class ARUXReasonsManager : MonoBehaviour
                 m_ReasonIcon.sprite = m_MotionSprite;
                 break;
             case NotTrackingReason.InsufficientLight:
-                if(m_LocalizeText)
+                if (vib && VibrationToggle.vibIsOn)
+                {
+                    Handheld.Vibrate();
+                    vib = false;
+                }
+                if (m_LocalizeText)
                 {
                     m_ReasonDisplayText.text = m_LocalizationManager.localizedLight;
                 }
@@ -211,6 +226,11 @@ public class ARUXReasonsManager : MonoBehaviour
                 m_ReasonIcon.sprite = m_LightSprite;
                 break;
             case NotTrackingReason.InsufficientFeatures:
+                if (vib && VibrationToggle.vibIsOn)
+                {
+                    Handheld.Vibrate();
+                    vib = false;
+                }
                 if (m_LocalizeText)
                 {
                     m_ReasonDisplayText.text = m_LocalizationManager.localizedFeatures;

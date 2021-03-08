@@ -12,13 +12,22 @@ public class AnimManager : MonoBehaviour
     }
 
 
-    public void setConsoleTrue()
+    public void setHelpTrue()
     {
-        m_Animator.SetBool("consoleIn", true);
+        m_Animator.SetBool("helpIn", true);
     }
 
-    public void setConsoleFalse()
+    public void setHelpFalse()
     {
-        m_Animator.SetBool("consoleIn", false);
+        m_Animator.SetBool("helpIn", false);
+    }
+    public void setSetTrue()
+    {
+        m_Animator.SetBool("setIn", true);
+    }
+
+    public void setSetFalse()
+    {
+        m_Animator.SetBool("setIn", false);
     }
 }

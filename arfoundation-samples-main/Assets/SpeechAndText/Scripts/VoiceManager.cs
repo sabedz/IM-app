@@ -113,14 +113,14 @@ public class VoiceManager : MonoBehaviour
             AnimHelpOut();
         }
 
-        /*else if (result == "stop" || result == "stop music")
+        else if (result == "setting" || result == "settings")
         {
-            pauseMusic();
+            AnimSetIn();
         }
-        else if (result == "play" || result == "play music")
+        else if (result == "save")
         {
-            playMusic();
-        }*/
+            AnimSetOut();
+        }
     }
     void OnPartialSpeechResult(string result)
     {
@@ -150,14 +150,14 @@ public class VoiceManager : MonoBehaviour
         {
             loadMain();
         }
-       /* else if (result == "stop" || result == "stop music")
+        else if (result == "setting" || result == "settings")
         {
-            pauseMusic();
+            AnimSetIn();
         }
-        else if (result == "play" || result == "play music")
+        else if (result == "save")
         {
-            playMusic();
-        }*/
+            AnimSetOut();
+        }
     }
     #endregion
 
@@ -191,12 +191,23 @@ public class VoiceManager : MonoBehaviour
 
     void AnimHelpIn()
     {
-        helpAnimator.SetBool("consoleIn", true);
+        helpAnimator.SetBool("helpIn", true);
         StartListening();
     }
     void AnimHelpOut()
     {
-        helpAnimator.SetBool("consoleIn", false);
+        helpAnimator.SetBool("helpIn", false);
+        StartListening();
+    }
+
+    void AnimSetIn()
+    {
+        helpAnimator.SetBool("setIn", true);
+        StartListening();
+    }
+    void AnimSetOut()
+    {
+        helpAnimator.SetBool("setIn", false);
         StartListening();
     }
 

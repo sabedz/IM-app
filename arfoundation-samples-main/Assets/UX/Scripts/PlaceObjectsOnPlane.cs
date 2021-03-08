@@ -12,8 +12,10 @@ public class PlaceObjectsOnPlane : MonoBehaviour
     GameObject m_PlacedPrefab;
     public GameObject m_text;
     AudioSource source;
+    AudioSource otherSource;
 
     public GameObject btnGo;
+    public GameObject popSource;
     Animator goAnimator;
 
     /// <summary>
@@ -59,6 +61,7 @@ public class PlaceObjectsOnPlane : MonoBehaviour
         m_RaycastManager = GetComponent<ARRaycastManager>();
         source = GetComponent<AudioSource>();
         goAnimator = btnGo.GetComponent<Animator>();
+        otherSource = popSource.GetComponent<AudioSource>();
         goAnimator.SetBool("go", false);
     }
 
@@ -84,9 +87,13 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                         spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
                         
                         m_NumberOfPlacedObjects++;
-                        Handheld.Vibrate();
+                   
+                        btnGo.SetActive(true);
                         showFinish();
-                        source.Play(0);
+                        if (SoundEffectsToggle.isOn == true)
+                        {
+                            source.Play(0);
+                        }
                         goAnimator.SetBool("go", true);
                     }
                     else
@@ -94,6 +101,10 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                         if (m_CanReposition)
                         {
                             spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                            if (SoundEffectsToggle.isOn == true)
+                            {
+                                otherSource.Play(0);
+                            }
                         }
                     }
                     
