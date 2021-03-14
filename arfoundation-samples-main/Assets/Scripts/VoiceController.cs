@@ -14,6 +14,7 @@ public class VoiceController : MonoBehaviour
 
     public Button enableSpear;
     public Button disableSpear;
+    public Slider scaleSlider;
 
     void Start()
     {
@@ -120,4 +121,5 @@ public class VoiceController : MonoBehaviour
         TextToSpeech.instance.Setting(code, 1, 1);
         SpeechToText.instance.Setting(code);
     }
+
 } 

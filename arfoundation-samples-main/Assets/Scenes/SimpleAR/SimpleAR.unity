@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1170,7 +1170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &676915674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,6 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableSpear: {fileID: 375022188}
   disableSpear: {fileID: 1090187500}
+  scaleSlider: {fileID: 993812799}
 --- !u!4 &676915675
 Transform:
   m_ObjectHideFlags: 0
@@ -1228,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98436c2ede2113c4ca89fedee9149640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShowPopupAndroid: 1
 --- !u!4 &694032075
 Transform:
   m_ObjectHideFlags: 0
