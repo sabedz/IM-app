@@ -97,6 +97,16 @@ public class VoiceController : MonoBehaviour
             disableSpear.onClick.Invoke();
         }
 
+        if (result == "increase scale")
+        {
+            IncreaseSlider();
+        }
+
+    }
+
+    void IncreaseSlider()
+    {
+        scaleSlider.value += .02f;
     }
 
     void OnPartialSpeechResult(string result)
@@ -111,6 +121,11 @@ public class VoiceController : MonoBehaviour
         if (result == "don't throw spear")
         {
             disableSpear.onClick.Invoke();
+        }
+
+        if (result == "increase scale")
+        {
+            IncreaseSlider();
         }
     }
     #endregion 

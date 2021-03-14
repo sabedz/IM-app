@@ -17,6 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 90e4d4d41d5975649a7f285d33a90a74
   m_SerializeEntries:
+  - m_GUID: a9c0ce19375a54db98a869b20015b307
+    m_Address: Assets/Prefabs/Colosseum.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_mainAssetType: 
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: cce9f57e3839440b4ad848c697b39d27
     m_Address: Assets/Prefabs/spear.obj
     m_ReadOnly: 0
