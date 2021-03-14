@@ -15,6 +15,7 @@ public class VoiceController : MonoBehaviour
     public Button enableSpear;
     public Button disableSpear;
     public Slider scaleSlider;
+    public Slider rotateSlider;
 
     void Start()
     {
@@ -99,14 +100,56 @@ public class VoiceController : MonoBehaviour
 
         if (result == "increase scale")
         {
-            IncreaseSlider();
+            IncreaseScale();
+        }
+
+        if (result == "decrease scale")
+        {
+            DecreaseScale();
+        }
+
+        if (result == "increase rotate")
+        {
+            IncreaseRotate();
+        }
+
+        if (result == "decrease rotate")
+        {
+            DecreaseRotate();
         }
 
     }
 
-    void IncreaseSlider()
+    void IncreaseScale()
     {
+        if (scaleSlider.value <= 0.06f)
+        {
         scaleSlider.value += .02f;
+        }
+    }
+
+    void DecreaseScale()
+    {
+        if (scaleSlider.value >= 0.04f)
+        {
+        scaleSlider.value -= .02f;
+        }
+    }
+
+    void IncreaseRotate()
+    {
+        if(rotateSlider.value <= 270)
+        {
+            rotateSlider.value += 90f;
+        }
+    }
+
+    void DecreaseRotate()
+    {
+        if (rotateSlider.value >= 90f)
+        {
+        rotateSlider.value -= 90f;
+        }
     }
 
     void OnPartialSpeechResult(string result)
@@ -125,8 +168,25 @@ public class VoiceController : MonoBehaviour
 
         if (result == "increase scale")
         {
-            IncreaseSlider();
+            IncreaseScale();
         }
+
+        if (result == "decrease scale")
+        {
+            DecreaseScale();
+        }
+
+        if (result == "increase rotate")
+        {
+            IncreaseRotate();
+        }
+
+        if (result == "decrease rotate")
+        {
+            DecreaseRotate();
+        }
+
+
     }
     #endregion 
 

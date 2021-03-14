@@ -1186,6 +1186,7 @@ MonoBehaviour:
   enableSpear: {fileID: 375022188}
   disableSpear: {fileID: 1090187500}
   scaleSlider: {fileID: 993812799}
+  rotateSlider: {fileID: 739816416}
 --- !u!4 &676915675
 Transform:
   m_ObjectHideFlags: 0
