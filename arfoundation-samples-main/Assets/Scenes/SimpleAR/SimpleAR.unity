@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98436c2ede2113c4ca89fedee9149640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShowPopupAndroid: 1
+  isShowPopupAndroid: 0
 --- !u!4 &694032075
 Transform:
   m_ObjectHideFlags: 0
