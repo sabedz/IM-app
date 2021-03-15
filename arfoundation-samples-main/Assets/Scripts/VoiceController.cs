@@ -108,12 +108,12 @@ public class VoiceController : MonoBehaviour
             DecreaseScale();
         }
 
-        if (result == "increase rotate")
+        if (result == "increase rotation")
         {
             IncreaseRotate();
         }
 
-        if (result == "decrease rotate")
+        if (result == "decrease rotation")
         {
             DecreaseRotate();
         }
@@ -176,12 +176,12 @@ public class VoiceController : MonoBehaviour
             DecreaseScale();
         }
 
-        if (result == "increase rotate")
+        if (result == "increase rotation")
         {
             IncreaseRotate();
         }
 
-        if (result == "decrease rotate")
+        if (result == "decrease rotation")
         {
             DecreaseRotate();
         }
