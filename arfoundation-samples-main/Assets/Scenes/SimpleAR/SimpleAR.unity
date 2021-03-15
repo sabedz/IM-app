@@ -4210,7 +4210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadbc58f0223a4c97ac10d83681d1f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProjectilePrefab: {fileID: 4601094224004011528, guid: e1c723ef7acd6462d860c5dd9ac3c127,
+  m_ProjectilePrefab: {fileID: 8943896262885459312, guid: d621e7188e6854393839eeb110219b2b,
     type: 3}
   m_InitialSpeed: 0.4
 --- !u!114 &882814164041548332
