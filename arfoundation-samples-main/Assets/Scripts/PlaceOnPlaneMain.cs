@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.Video; 
 
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlaceOnPlaneMain : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlaceOnPlaneMain : MonoBehaviour
     [Tooltip("Instantiates this prefab on a plane at the touch location.")]
     GameObject m_PlacedPrefab;
     public GameObject m_text;
+    private VideoPlayer _videoPlayer; 
 
     /// <summary>
     /// The prefab to instantiate on touch.
@@ -94,7 +96,30 @@ public class PlaceOnPlaneMain : MonoBehaviour
                 }
             }
         }
+    public void playButton()    {
+
+
+        VideoPlayer _videoPlayer = spawnedObject.GetComponent<VideoPlayer>();
+        _videoPlayer.Play(); 
+
+
+            }
+
+
+    public void pauseButton()
+    {
+
+
+        VideoPlayer _videoPlayer = spawnedObject.GetComponent<VideoPlayer>();
+        _videoPlayer.Pause();
 
 
     }
+
+
+
+
+
+
+}
 

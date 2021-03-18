@@ -1180,7 +1180,7 @@ GameObject:
   - component: {fileID: 552060575}
   - component: {fileID: 552060574}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,7 +1249,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 552060575}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1335839538}
+        m_TargetAssemblyTypeName: PlaceOnPlaneMain, Assembly-CSharp
+        m_MethodName: playButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &552060575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1864,7 +1876,7 @@ GameObject:
   - component: {fileID: 913596331}
   - component: {fileID: 913596330}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1933,7 +1945,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 913596331}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1335839538}
+        m_TargetAssemblyTypeName: PlaceOnPlaneMain, Assembly-CSharp
+        m_MethodName: pauseButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &913596331
 MonoBehaviour:
   m_ObjectHideFlags: 0
